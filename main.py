@@ -15,15 +15,17 @@ while running:
     print("0) Exit (Will delete all progress)")
     print("-------------------------------")
     userInput = input("Enter a command: ")
-    print(f"You entered {userInput}")
     if userInput == "1":
         seed_manager.add_seed()
     elif userInput == "2":
-        pass # modify
+        seed_manager.print_seeds()
+        idx = input("Which seed do you want to modify: ")
+        seed_manager.modify_seed(seed_manager.seeds[int(idx)])
     elif userInput == "3":
         seed_manager.print_seeds()
     elif userInput == "4":
-        pass #calc
+        seedToCalc = input("Which seed to calculate: ")
+        seed_manager.seeds[int(seedToCalc)].calculate_result()
     elif userInput == "0":
         running = False
     else:

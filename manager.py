@@ -9,11 +9,11 @@ class SeedManager():
         id = len(self.seeds)
         newSeed = Seed(id)
         primary = input("Enter the primary seed genes: ")
-        newSeed.primary = primary
+        newSeed.primary = primary.upper()
         numGenes = input("How many genes would you like to add to this seed: ")
         for x in range(1, int(numGenes) + 1):
             neighbor = input("Enter a neighbor gene: ")
-            newSeed.neighbors.append(neighbor)
+            newSeed.neighbors.append(neighbor.upper())
         self.seeds.append(newSeed)
 
     def remove_seed(self, seed):
@@ -36,13 +36,13 @@ class SeedManager():
         userInput = input("\nEnter a command: ")
         if userInput == "1":
             newPrimary = input("Enter new primary genes: ")
-            seed.primary = newPrimary
+            seed.primary = newPrimary.upper()
         if userInput == "2":
             neighbor = input("Which neighbor would you like to edit: ")
             if seed.neighbors[int(neighbor)]:
 
                 newNeighbor = input("Enter new gene: ")
-                seed.neighbors[int(neighbor)] = newNeighbor
+                seed.neighbors[int(neighbor)] = newNeighbor.upper()
             else:
                 print("invalid neighbor index")
 
